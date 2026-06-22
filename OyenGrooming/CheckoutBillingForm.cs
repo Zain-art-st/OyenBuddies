@@ -145,6 +145,25 @@ namespace OyenGrooming
 
             // Reload pets when customer changes
             cmbCustomer.SelectedIndexChanged += (s, e) => LoadPetsForCustomer();
+
+            // Sync the chosen customer/pet into the invoice being built
+            cmbPet.SelectedIndexChanged += (s, e) =>
+            {
+                if (cmbCustomer.SelectedValue != null && cmbPet.SelectedValue != null)
+                {
+                    var customer = (Customer)cmbCustomer.SelectedItem;
+                    var pet = (Pet)cmbPet.SelectedItem;
+
+                    _currentInvoice.CustomerID = (int)cmbCustomer.SelectedValue;
+                    _currentInvoice.PetID = (int)cmbPet.SelectedValue;
+                    _currentInvoice.CustomerName = customer?.FullName;
+                    _currentInvoice.PetName = pet?.Name;
+
+                    lblCustomerName.Text = customer?.FullName ?? "—";
+                    lblPetName.Text = pet?.Name ?? "—";
+                    lblSource.Text = "Walk-up";
+                }
+            };
         }
 
         private void SetupKeyboardEvents()
@@ -558,6 +577,10 @@ namespace OyenGrooming
                         "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+
+                // Keep the invoice's Items in sync with what's actually in the line-item grid —
+                // Invoice.Validate() checks this collection, but nothing was ever copying into it.
+                _currentInvoice.Items = new List<InvoiceItem>(_lineItems);
 
                 if (!_currentInvoice.Validate())
                 {

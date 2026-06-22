@@ -402,5 +402,15 @@ namespace OyenGrooming
                 return new SqlConnection(_connectionString);
             }
         }
+
+        private void dgvTodayAppts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvTodayAppts.AutoGenerateColumns = false;
+            dgvTodayAppts.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Time", DataPropertyName = "Time", Width = 80 });
+            dgvTodayAppts.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Pet", DataPropertyName = "Pet", Width = 100 });
+            dgvTodayAppts.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Customer", DataPropertyName = "Customer", Width = 130 });
+            dgvTodayAppts.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Service", DataPropertyName = "Service", Width = 100 });
+            dgvTodayAppts.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Status", DataPropertyName = "Status", Width = 90 });
+        }
     }
 }

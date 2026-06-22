@@ -41,27 +41,31 @@ namespace OyenGrooming
         {
             // Customer grid columns
             dgvCustomers.AutoGenerateColumns = false;
-            dgvCustomers.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "#", DataPropertyName = "ID", Width = 36 });
-            dgvCustomers.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Full Name", DataPropertyName = "FullName", Width = 130 });
-            dgvCustomers.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Phone", DataPropertyName = "Phone", Width = 110 });
-            dgvCustomers.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Email", DataPropertyName = "Email", Width = 150 });
-            dgvCustomers.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Pets", DataPropertyName = "PetCount", Width = 45 });
+            dgvCustomers.Columns.Add(new DataGridViewTextBoxColumn { Name = "ID", HeaderText = "#", DataPropertyName = "ID", Width = 36 });
+            dgvCustomers.Columns.Add(new DataGridViewTextBoxColumn { Name = "FullName", HeaderText = "Full Name", DataPropertyName = "FullName", Width = 130 });
+            dgvCustomers.Columns.Add(new DataGridViewTextBoxColumn { Name = "Phone", HeaderText = "Phone", DataPropertyName = "Phone", Width = 110 });
+            dgvCustomers.Columns.Add(new DataGridViewTextBoxColumn { Name = "Email", HeaderText = "Email", DataPropertyName = "Email", Width = 150 });
+            dgvCustomers.Columns.Add(new DataGridViewTextBoxColumn { Name = "PetCount", HeaderText = "Pets", DataPropertyName = "PetCount", Width = 45 });
             dgvCustomers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCustomers.MultiSelect = false;
             dgvCustomers.ReadOnly = true;
 
             // Pet grid columns
             dgvPets.AutoGenerateColumns = false;
-            dgvPets.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "#", DataPropertyName = "ID", Width = 36 });
-            dgvPets.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Icon", DataPropertyName = "Icon", Width = 36 });
-            dgvPets.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Name", DataPropertyName = "Name", Width = 90 });
-            dgvPets.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Species", DataPropertyName = "Species", Width = 70 });
-            dgvPets.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Breed", DataPropertyName = "Breed", Width = 100 });
-            dgvPets.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Age", DataPropertyName = "Age", Width = 44 });
-            dgvPets.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Owner", DataPropertyName = "Owner", Width = 110 });
+            dgvPets.Columns.Add(new DataGridViewTextBoxColumn { Name = "ID", HeaderText = "#", DataPropertyName = "ID", Width = 36 });
+            dgvPets.Columns.Add(new DataGridViewTextBoxColumn { Name = "Icon", HeaderText = "Icon", DataPropertyName = "Icon", Width = 36 });
+            dgvPets.Columns.Add(new DataGridViewTextBoxColumn { Name = "Name", HeaderText = "Name", DataPropertyName = "Name", Width = 90 });
+            dgvPets.Columns.Add(new DataGridViewTextBoxColumn { Name = "Species", HeaderText = "Species", DataPropertyName = "Species", Width = 70 });
+            dgvPets.Columns.Add(new DataGridViewTextBoxColumn { Name = "Breed", HeaderText = "Breed", DataPropertyName = "Breed", Width = 100 });
+            dgvPets.Columns.Add(new DataGridViewTextBoxColumn { Name = "Age", HeaderText = "Age", DataPropertyName = "Age", Width = 44 });
+            dgvPets.Columns.Add(new DataGridViewTextBoxColumn { Name = "Owner", HeaderText = "Owner", DataPropertyName = "Owner", Width = 110 });
             dgvPets.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPets.MultiSelect = false;
             dgvPets.ReadOnly = true;
+
+            // Status dropdown — must be populated before anything sets SelectedIndex/SelectedItem on it
+            cmbStatus.Items.Clear();
+            cmbStatus.Items.AddRange(new object[] { "Active", "Inactive" });
         }
 
         private void SetupMouseEvents()

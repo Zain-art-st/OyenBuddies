@@ -61,9 +61,10 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.panelCash = new System.Windows.Forms.Panel();
             this.Cash = new System.Windows.Forms.Label();
+            this.panelCard = new System.Windows.Forms.Panel();
+            this.lblCardOption = new System.Windows.Forms.Label();
             this.panelQR = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panelBank = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.txtAmountTendered = new System.Windows.Forms.TextBox();
@@ -95,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudDiscount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTax)).BeginInit();
             this.panelCash.SuspendLayout();
+            this.panelCard.SuspendLayout();
             this.panelQR.SuspendLayout();
             this.panelBank.SuspendLayout();
             this.panelTotalDue.SuspendLayout();
@@ -389,6 +391,7 @@
             this.panelCash.Name = "panelCash";
             this.panelCash.Size = new System.Drawing.Size(200, 35);
             this.panelCash.TabIndex = 26;
+            this.panelCash.Tag = "Cash";
             // 
             // Cash
             // 
@@ -397,17 +400,36 @@
             this.Cash.Name = "Cash";
             this.Cash.Size = new System.Drawing.Size(64, 16);
             this.Cash.TabIndex = 28;
-            this.Cash.Text = "Customer";
+            this.Cash.Text = "Cash";
+            // 
+            // panelCard
+            // 
+            this.panelCard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelCard.Controls.Add(this.lblCardOption);
+            this.panelCard.Location = new System.Drawing.Point(18, 102);
+            this.panelCard.Name = "panelCard";
+            this.panelCard.Size = new System.Drawing.Size(200, 35);
+            this.panelCard.TabIndex = 27;
+            this.panelCard.Tag = "Card";
+            // 
+            // lblCardOption
+            // 
+            this.lblCardOption.AutoSize = true;
+            this.lblCardOption.Location = new System.Drawing.Point(67, 9);
+            this.lblCardOption.Name = "lblCardOption";
+            this.lblCardOption.Size = new System.Drawing.Size(64, 16);
+            this.lblCardOption.TabIndex = 34;
+            this.lblCardOption.Text = "Card";
             // 
             // panelQR
             // 
             this.panelQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelQR.Controls.Add(this.label8);
-            this.panelQR.Controls.Add(this.label7);
-            this.panelQR.Location = new System.Drawing.Point(18, 102);
+            this.panelQR.Location = new System.Drawing.Point(18, 161);
             this.panelQR.Name = "panelQR";
             this.panelQR.Size = new System.Drawing.Size(200, 35);
             this.panelQR.TabIndex = 28;
+            this.panelQR.Tag = "QR/e-Wallet";
             // 
             // label8
             // 
@@ -416,25 +438,17 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 16);
             this.label8.TabIndex = 36;
-            this.label8.Text = "Bank Transfer";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(67, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 16);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "Customer";
+            this.label8.Text = "QR / E-Wallet";
             // 
             // panelBank
             // 
             this.panelBank.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelBank.Controls.Add(this.label9);
-            this.panelBank.Location = new System.Drawing.Point(18, 161);
+            this.panelBank.Location = new System.Drawing.Point(18, 220);
             this.panelBank.Name = "panelBank";
             this.panelBank.Size = new System.Drawing.Size(200, 35);
             this.panelBank.TabIndex = 29;
+            this.panelBank.Tag = "Bank Transfer";
             // 
             // label9
             // 
@@ -443,7 +457,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(82, 16);
             this.label9.TabIndex = 37;
-            this.label9.Text = "QR/E-Wallet";
+            this.label9.Text = "Bank Transfer";
             // 
             // txtAmountTendered
             // 
@@ -628,6 +642,7 @@
             this.panel3.Controls.Add(this.panelQR);
             this.panel3.Controls.Add(this.btnPrintReceipt);
             this.panel3.Controls.Add(this.panelCash);
+            this.panel3.Controls.Add(this.panelCard);
             this.panel3.Controls.Add(this.btnConfirmPayment);
             this.panel3.Controls.Add(this.panelBank);
             this.panel3.Controls.Add(this.txtAmountTendered);
@@ -727,6 +742,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudTax)).EndInit();
             this.panelCash.ResumeLayout(false);
             this.panelCash.PerformLayout();
+            this.panelCard.ResumeLayout(false);
+            this.panelCard.PerformLayout();
             this.panelQR.ResumeLayout(false);
             this.panelQR.PerformLayout();
             this.panelBank.ResumeLayout(false);
@@ -786,6 +803,7 @@
         private System.Windows.Forms.Label lblTax;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Panel panelCash;
+        private System.Windows.Forms.Panel panelCard;
         private System.Windows.Forms.Panel panelQR;
         private System.Windows.Forms.Panel panelBank;
         private System.Windows.Forms.TextBox txtAmountTendered;
@@ -805,8 +823,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label Cash;
+        private System.Windows.Forms.Label lblCardOption;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labl32;

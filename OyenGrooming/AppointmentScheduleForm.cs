@@ -95,12 +95,28 @@ namespace OyenGrooming
                 LoadCustomers();
                 LoadServices();
                 LoadGroomers();
+                LoadStatuses();
             }
             catch (SqlException ex)
             {
                 MessageBox.Show($"Error loading data: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void LoadStatuses()
+        {
+            // cmbStatus / cmbFilterStatus must have items before anything sets SelectedIndex/SelectedItem on them
+            cmbStatus.Items.Clear();
+            cmbStatus.Items.AddRange(new object[] { "Pending", "Confirmed", "Completed", "Cancelled" });
+
+            cmbFilterStatus.Items.Clear();
+            cmbFilterStatus.Items.AddRange(new object[] { "All Status", "Pending", "Confirmed", "Completed", "Cancelled" });
+            cmbFilterStatus.SelectedIndex = 0;
+
+            // cmbTimeSlot was never populated, so SelectedItem = slot in RenderSlots() had nothing to match against
+            cmbTimeSlot.Items.Clear();
+            cmbTimeSlot.Items.AddRange(_timeSlots.ToArray());
         }
 
         private void LoadCustomers()
@@ -128,12 +144,6 @@ namespace OyenGrooming
             cmbCustomer.DisplayMember = "FullName";
             cmbCustomer.ValueMember = "ID";
             cmbCustomer.DataSource = new List<Customer>(_customers);
-
-            // Also populate filter dropdown
-            var filterList = new List<Customer> { new Customer { ID = -1, FullName = "All Customers" } };
-            filterList.AddRange(_customers);
-            cmbFilterGroomer.DisplayMember = "FullName";
-            cmbFilterGroomer.ValueMember = "ID";
         }
 
         private void LoadPetsForCustomer()
@@ -202,6 +212,13 @@ namespace OyenGrooming
             cmbService.DisplayMember = "ServiceName";
             cmbService.ValueMember = "ID";
             cmbService.DataSource = new List<Service>(_services);
+
+            // Left-panel "Service" filter dropdown
+            var serviceFilterList = new List<Service> { new Service { ID = -1, ServiceName = "All Services" } };
+            serviceFilterList.AddRange(_services);
+            cmbFilterService.DisplayMember = "ServiceName";
+            cmbFilterService.ValueMember = "ID";
+            cmbFilterService.DataSource = serviceFilterList;
         }
 
         private void LoadGroomers()
@@ -228,6 +245,13 @@ namespace OyenGrooming
             cmbGroomer.DisplayMember = "FullName";
             cmbGroomer.ValueMember = "ID";
             cmbGroomer.DataSource = new List<Staff>(_groomers);
+
+            // Left-panel "Groomer" filter dropdown
+            var groomerFilterList = new List<Staff> { new Staff { ID = -1, FullName = "All Groomers" } };
+            groomerFilterList.AddRange(_groomers);
+            cmbFilterGroomer.DisplayMember = "FullName";
+            cmbFilterGroomer.ValueMember = "ID";
+            cmbFilterGroomer.DataSource = groomerFilterList;
         }
 
         // ─── LOAD APPOINTMENTS FOR SELECTED DATE ──────────────────
@@ -402,8 +426,8 @@ namespace OyenGrooming
                     // Click empty slot to pre-fill time in form
                     slotBtn.Click += (s, e) =>
                     {
-                        cmbTimeSlot.SelectedItem = slot;
                         btnNew_Click(s, e);
+                        cmbTimeSlot.SelectedItem = slot;
                     };
 
                     slotBtn.MouseEnter += (s, e) =>
