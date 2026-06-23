@@ -58,6 +58,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -80,9 +81,9 @@
             // 
             // txtRegPassword
             // 
-            this.txtRegPassword.Location = new System.Drawing.Point(38, 256);
+            this.txtRegPassword.Location = new System.Drawing.Point(52, 256);
             this.txtRegPassword.Name = "txtRegPassword";
-            this.txtRegPassword.Size = new System.Drawing.Size(167, 22);
+            this.txtRegPassword.Size = new System.Drawing.Size(153, 22);
             this.txtRegPassword.TabIndex = 2;
             // 
             // txtPhone
@@ -101,7 +102,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(53, 196);
+            this.txtPassword.Location = new System.Drawing.Point(102, 196);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(246, 22);
             this.txtPassword.TabIndex = 5;
@@ -126,14 +127,14 @@
             // cmbRole
             // 
             this.cmbRole.FormattingEnabled = true;
-            this.cmbRole.Location = new System.Drawing.Point(53, 254);
+            this.cmbRole.Location = new System.Drawing.Point(102, 254);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(246, 24);
             this.cmbRole.TabIndex = 8;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(53, 129);
+            this.txtUsername.Location = new System.Drawing.Point(102, 129);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(246, 22);
             this.txtUsername.TabIndex = 9;
@@ -184,6 +185,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
@@ -263,6 +265,7 @@
             this.button5.TabIndex = 17;
             this.button5.Text = "About";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -304,7 +307,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(52, 235);
+            this.label5.Location = new System.Drawing.Point(101, 235);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 16);
             this.label5.TabIndex = 16;
@@ -313,7 +316,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(50, 173);
+            this.label4.Location = new System.Drawing.Point(99, 173);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 16);
             this.label4.TabIndex = 15;
@@ -322,7 +325,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 110);
+            this.label3.Location = new System.Drawing.Point(99, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 16);
             this.label3.TabIndex = 14;
@@ -435,6 +438,18 @@
             this.label1.Size = new System.Drawing.Size(185, 24);
             this.label1.TabIndex = 12;
             this.label1.Text = "Register New Staff";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label13.Location = new System.Drawing.Point(375, 7);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(149, 17);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Oyen\'s Buddies System";
             // 
             // LoginForm
             // 
@@ -451,6 +466,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -500,5 +516,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label13;
     }
 }

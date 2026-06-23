@@ -40,6 +40,7 @@ namespace OyenGrooming
             LoadDropdownData();
             LoadRecentInvoices();
             StartNewInvoice();
+            lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
         // ─── SETUP ────────────────────────────────────────────────
@@ -721,7 +722,7 @@ namespace OyenGrooming
 
                 string receipt =
                     "╔══════════════════════════════════════╗\n" +
-                    "║         PAWPERFECT GROOMING          ║\n" +
+                    "║            OYEN'S BUDDIES            ║\n" +
                     "╚══════════════════════════════════════╝\n" +
                     $"  Date   : {DateTime.Now:dd/MM/yyyy HH:mm}\n" +
                     $"  Invoice: INV-{_currentInvoice.ID:D3}\n" +
@@ -736,7 +737,7 @@ namespace OyenGrooming
                     $"  TOTAL    : RM {_currentInvoice.TotalAmount,8:F2}\n" +
                     "  ─────────────────────────────────────\n" +
                     $"  Payment  : {_currentInvoice.PaymentMethod}\n" +
-                    "  Thank you for visiting PawPerfect!\n" +
+                    "  Thank you for visiting Oyen's Buddies!\n" +
                     "╚══════════════════════════════════════╝";
 
                 MessageBox.Show(receipt, "Receipt Preview",

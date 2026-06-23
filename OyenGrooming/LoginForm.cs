@@ -315,6 +315,17 @@ namespace OyenGrooming
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            About aboutForm = new About();
+            aboutForm.Show(); // Allows interacting with both windows at on
+        }
     }
 
     // ─── DATABASE HELPER ──────────────────────────────────────────

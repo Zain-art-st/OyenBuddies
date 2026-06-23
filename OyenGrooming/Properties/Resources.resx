@@ -118,16 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pedestrianwalking_89238" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pedestrianwalking_89238.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="1067374" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1067374.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Man_walking_icon_1410105361.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Man_walking_icon_1410105361.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="calendar-with-spring-binder-and-date-blocks_icon-icons.com_73645" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar-with-spring-binder-and-date-blocks_icon-icons.com_73645.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="3289576-individual-man-people-person_107097" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3289576-individual-man-people-person_107097.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="explosion-cats" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\explosion-cats.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="istockphoto-1330591104-612x612" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\istockphoto-1330591104-612x612.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cat-explosion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cat-explosion.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Man_walking_icon_1410105361.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Man_walking_icon_1410105361.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calendar_date_event_schedule_icon_127191" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar_date_event_schedule_icon_127191.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="analytics_income_increase_chart_growth_profit_revenue_icon_232603" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\analytics_income_increase_chart_growth_profit_revenue_icon_232603.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="712tQUrusKL._AC_UF894,1000_QL80_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\712tQUrusKL._AC_UF894,1000_QL80_.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

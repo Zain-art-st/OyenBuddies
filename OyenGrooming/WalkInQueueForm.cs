@@ -598,6 +598,7 @@ namespace OyenGrooming
         {
             int next = GetNextQueueNumber();
             txtNotes.Text = $"#{next:D3}";
+            lblNextNumber.Text = $"#{next:D3}";
         }
 
         private int GetNextQueueNumber()

@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     <Compile Include="WalkInQueueForm.Designer.cs">
       <DependentUpon>WalkInQueueForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +168,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\istockphoto-1330591104-612x612.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_date_event_schedule_icon_127191.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3289576-individual-man-people-person_107097.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pedestrianwalking_89238.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\analytics_income_increase_chart_growth_profit_revenue_icon_232603.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar-with-spring-binder-and-date-blocks_icon-icons.com_73645.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cat-explosion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\712tQUrusKL._AC_UF894,1000_QL80_.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\explosion-cats.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

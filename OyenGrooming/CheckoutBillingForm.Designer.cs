@@ -77,6 +77,7 @@
             this.lblStatusInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTotalDue = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -88,8 +89,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLineItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQty)).BeginInit();
@@ -107,7 +109,6 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -125,7 +126,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 30);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(1106, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1216, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -134,7 +135,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(114, 28);
+            this.toolStripButton1.Size = new System.Drawing.Size(114, 24);
             this.toolStripButton1.Text = "New Invoice";
             this.toolStripButton1.Click += new System.EventHandler(this.btnNewInvoice_Click);
             // 
@@ -143,7 +144,7 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(158, 28);
+            this.toolStripButton2.Size = new System.Drawing.Size(158, 24);
             this.toolStripButton2.Text = "Load Appointment";
             // 
             // toolStripButton3
@@ -151,7 +152,7 @@
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(120, 28);
+            this.toolStripButton3.Size = new System.Drawing.Size(120, 24);
             this.toolStripButton3.Text = "Load Walk-in";
             // 
             // toolStripButton4
@@ -159,7 +160,7 @@
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(63, 28);
+            this.toolStripButton4.Size = new System.Drawing.Size(63, 24);
             this.toolStripButton4.Text = "Print";
             this.toolStripButton4.Click += new System.EventHandler(this.btnPrintReceipt_Click);
             // 
@@ -168,7 +169,7 @@
             this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(82, 28);
+            this.toolStripButton5.Size = new System.Drawing.Size(82, 24);
             this.toolStripButton5.Text = "Refresh";
             this.toolStripButton5.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -177,7 +178,7 @@
             this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(64, 28);
+            this.toolStripButton6.Size = new System.Drawing.Size(64, 24);
             this.toolStripButton6.Text = "Back";
             this.toolStripButton6.Click += new System.EventHandler(this.btnBack_Click);
             // 
@@ -258,11 +259,11 @@
             this.dgvLineItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvLineItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLineItems.GridColor = System.Drawing.Color.White;
-            this.dgvLineItems.Location = new System.Drawing.Point(236, 150);
+            this.dgvLineItems.Location = new System.Drawing.Point(252, 150);
             this.dgvLineItems.Name = "dgvLineItems";
             this.dgvLineItems.RowHeadersWidth = 51;
             this.dgvLineItems.RowTemplate.Height = 24;
-            this.dgvLineItems.Size = new System.Drawing.Size(568, 236);
+            this.dgvLineItems.Size = new System.Drawing.Size(702, 214);
             this.dgvLineItems.TabIndex = 9;
             // 
             // cmbAddService
@@ -282,18 +283,18 @@
             // 
             // txtUnitPrice
             // 
-            this.txtUnitPrice.Location = new System.Drawing.Point(628, 404);
+            this.txtUnitPrice.Location = new System.Drawing.Point(696, 406);
             this.txtUnitPrice.Name = "txtUnitPrice";
-            this.txtUnitPrice.Size = new System.Drawing.Size(120, 22);
+            this.txtUnitPrice.Size = new System.Drawing.Size(149, 22);
             this.txtUnitPrice.TabIndex = 13;
             // 
             // btnAddItem
             // 
             this.btnAddItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddItem.Location = new System.Drawing.Point(754, 403);
+            this.btnAddItem.Location = new System.Drawing.Point(851, 392);
             this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(45, 23);
+            this.btnAddItem.Size = new System.Drawing.Size(103, 36);
             this.btnAddItem.TabIndex = 15;
             this.btnAddItem.Text = "Add";
             this.btnAddItem.UseVisualStyleBackColor = false;
@@ -310,7 +311,7 @@
             // 
             this.nudTax.Location = new System.Drawing.Point(155, 29);
             this.nudTax.Name = "nudTax";
-            this.nudTax.Size = new System.Drawing.Size(164, 22);
+            this.nudTax.Size = new System.Drawing.Size(268, 22);
             this.nudTax.TabIndex = 17;
             // 
             // label3
@@ -333,7 +334,7 @@
             // 
             // txtNotes
             // 
-            this.txtNotes.Location = new System.Drawing.Point(341, 28);
+            this.txtNotes.Location = new System.Drawing.Point(448, 29);
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Size = new System.Drawing.Size(269, 22);
             this.txtNotes.TabIndex = 20;
@@ -341,7 +342,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(357, 9);
+            this.label5.Location = new System.Drawing.Point(464, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 16);
             this.label5.TabIndex = 21;
@@ -350,7 +351,7 @@
             // lblSubtotal
             // 
             this.lblSubtotal.AutoSize = true;
-            this.lblSubtotal.Location = new System.Drawing.Point(472, 63);
+            this.lblSubtotal.Location = new System.Drawing.Point(15, 85);
             this.lblSubtotal.Name = "lblSubtotal";
             this.lblSubtotal.Size = new System.Drawing.Size(62, 16);
             this.lblSubtotal.TabIndex = 22;
@@ -359,7 +360,7 @@
             // lblDiscount
             // 
             this.lblDiscount.AutoSize = true;
-            this.lblDiscount.Location = new System.Drawing.Point(472, 88);
+            this.lblDiscount.Location = new System.Drawing.Point(15, 110);
             this.lblDiscount.Name = "lblDiscount";
             this.lblDiscount.Size = new System.Drawing.Size(59, 16);
             this.lblDiscount.TabIndex = 23;
@@ -368,7 +369,7 @@
             // lblTax
             // 
             this.lblTax.AutoSize = true;
-            this.lblTax.Location = new System.Drawing.Point(472, 114);
+            this.lblTax.Location = new System.Drawing.Point(15, 136);
             this.lblTax.Name = "lblTax";
             this.lblTax.Size = new System.Drawing.Size(30, 16);
             this.lblTax.TabIndex = 24;
@@ -377,9 +378,11 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(473, 146);
+            this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.Lime;
+            this.lblTotal.Location = new System.Drawing.Point(607, 176);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(38, 16);
+            this.lblTotal.Size = new System.Drawing.Size(81, 38);
             this.lblTotal.TabIndex = 25;
             this.lblTotal.Text = "Total";
             // 
@@ -396,9 +399,9 @@
             // Cash
             // 
             this.Cash.AutoSize = true;
-            this.Cash.Location = new System.Drawing.Point(67, 9);
+            this.Cash.Location = new System.Drawing.Point(74, 9);
             this.Cash.Name = "Cash";
-            this.Cash.Size = new System.Drawing.Size(64, 16);
+            this.Cash.Size = new System.Drawing.Size(38, 16);
             this.Cash.TabIndex = 28;
             this.Cash.Text = "Cash";
             // 
@@ -415,9 +418,9 @@
             // lblCardOption
             // 
             this.lblCardOption.AutoSize = true;
-            this.lblCardOption.Location = new System.Drawing.Point(67, 9);
+            this.lblCardOption.Location = new System.Drawing.Point(76, 10);
             this.lblCardOption.Name = "lblCardOption";
-            this.lblCardOption.Size = new System.Drawing.Size(64, 16);
+            this.lblCardOption.Size = new System.Drawing.Size(36, 16);
             this.lblCardOption.TabIndex = 34;
             this.lblCardOption.Text = "Card";
             // 
@@ -434,9 +437,9 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(67, 8);
+            this.label8.Location = new System.Drawing.Point(57, 7);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 16);
+            this.label8.Size = new System.Drawing.Size(88, 16);
             this.label8.TabIndex = 36;
             this.label8.Text = "QR / E-Wallet";
             // 
@@ -453,16 +456,16 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(67, 8);
+            this.label9.Location = new System.Drawing.Point(57, 7);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 16);
+            this.label9.Size = new System.Drawing.Size(91, 16);
             this.label9.TabIndex = 37;
             this.label9.Text = "Bank Transfer";
             // 
             // txtAmountTendered
             // 
             this.txtAmountTendered.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAmountTendered.Location = new System.Drawing.Point(18, 272);
+            this.txtAmountTendered.Location = new System.Drawing.Point(18, 299);
             this.txtAmountTendered.Name = "txtAmountTendered";
             this.txtAmountTendered.Size = new System.Drawing.Size(200, 22);
             this.txtAmountTendered.TabIndex = 30;
@@ -470,7 +473,7 @@
             // lblChange
             // 
             this.lblChange.AutoSize = true;
-            this.lblChange.Location = new System.Drawing.Point(15, 327);
+            this.lblChange.Location = new System.Drawing.Point(24, 332);
             this.lblChange.Name = "lblChange";
             this.lblChange.Size = new System.Drawing.Size(54, 16);
             this.lblChange.TabIndex = 31;
@@ -492,7 +495,7 @@
             this.panelTotalDue.Controls.Add(this.lblSubtotal);
             this.panelTotalDue.Location = new System.Drawing.Point(236, 434);
             this.panelTotalDue.Name = "panelTotalDue";
-            this.panelTotalDue.Size = new System.Drawing.Size(624, 202);
+            this.panelTotalDue.Size = new System.Drawing.Size(734, 235);
             this.panelTotalDue.TabIndex = 32;
             // 
             // btnConfirmPayment
@@ -500,7 +503,7 @@
             this.btnConfirmPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(110)))), ((int)(((byte)(86)))));
             this.btnConfirmPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmPayment.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnConfirmPayment.Location = new System.Drawing.Point(51, 462);
+            this.btnConfirmPayment.Location = new System.Drawing.Point(51, 467);
             this.btnConfirmPayment.Name = "btnConfirmPayment";
             this.btnConfirmPayment.Size = new System.Drawing.Size(130, 45);
             this.btnConfirmPayment.TabIndex = 33;
@@ -510,7 +513,7 @@
             // 
             // btnPrintReceipt
             // 
-            this.btnPrintReceipt.Location = new System.Drawing.Point(51, 516);
+            this.btnPrintReceipt.Location = new System.Drawing.Point(51, 521);
             this.btnPrintReceipt.Name = "btnPrintReceipt";
             this.btnPrintReceipt.Size = new System.Drawing.Size(130, 23);
             this.btnPrintReceipt.TabIndex = 34;
@@ -524,9 +527,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lblStatusInfo});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 639);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 672);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1106, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(1216, 26);
             this.statusStrip1.TabIndex = 35;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -556,20 +559,32 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.btnMinimize);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1106, 30);
+            this.panel1.Size = new System.Drawing.Size(1216, 30);
             this.panel1.TabIndex = 38;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label7.Location = new System.Drawing.Point(558, 7);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(149, 17);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Oyen\'s Buddies System";
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Green;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(1073, 12);
+            this.button3.Location = new System.Drawing.Point(1183, 10);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(12, 12);
             this.button3.TabIndex = 45;
@@ -580,7 +595,7 @@
             // 
             this.btnMinimize.BackColor = System.Drawing.Color.Yellow;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Location = new System.Drawing.Point(1055, 12);
+            this.btnMinimize.Location = new System.Drawing.Point(1165, 10);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(12, 12);
             this.btnMinimize.TabIndex = 44;
@@ -591,7 +606,7 @@
             // 
             this.btnClose.BackColor = System.Drawing.Color.Red;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(1037, 12);
+            this.btnClose.Location = new System.Drawing.Point(1147, 10);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(12, 12);
             this.btnClose.TabIndex = 43;
@@ -609,9 +624,9 @@
             this.panel2.Controls.Add(this.cmbPet);
             this.panel2.Controls.Add(this.lstRecentInvoices);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 61);
+            this.panel2.Location = new System.Drawing.Point(0, 57);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(230, 578);
+            this.panel2.Size = new System.Drawing.Size(230, 615);
             this.panel2.TabIndex = 39;
             // 
             // label2
@@ -636,7 +651,6 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.panel7);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.panelQR);
@@ -648,16 +662,16 @@
             this.panel3.Controls.Add(this.txtAmountTendered);
             this.panel3.Controls.Add(this.lblChange);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(866, 61);
+            this.panel3.Location = new System.Drawing.Point(976, 57);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(240, 578);
+            this.panel3.Size = new System.Drawing.Size(240, 615);
             this.panel3.TabIndex = 40;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(158)))), ((int)(((byte)(117)))));
             this.panel4.Controls.Add(this.lblTotalDue);
-            this.panel4.Location = new System.Drawing.Point(18, 346);
+            this.panel4.Location = new System.Drawing.Point(18, 351);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(200, 110);
             this.panel4.TabIndex = 33;
@@ -665,7 +679,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 253);
+            this.label6.Location = new System.Drawing.Point(15, 280);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(135, 16);
             this.label6.TabIndex = 32;
@@ -680,53 +694,65 @@
             this.panel5.Controls.Add(this.lblPetName);
             this.panel5.Controls.Add(this.lblSource);
             this.panel5.Controls.Add(this.lblInvoiceNum);
-            this.panel5.Location = new System.Drawing.Point(255, 76);
+            this.panel5.Location = new System.Drawing.Point(313, 76);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(592, 60);
             this.panel5.TabIndex = 41;
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Controls.Add(this.label11);
+            this.panel6.Controls.Add(this.label1);
             this.panel6.Controls.Add(this.panel5);
             this.panel6.Controls.Add(this.cmbAddService);
             this.panel6.Controls.Add(this.nudQty);
+            this.panel6.Controls.Add(this.dgvLineItems);
             this.panel6.Controls.Add(this.txtUnitPrice);
             this.panel6.Controls.Add(this.btnAddItem);
             this.panel6.Controls.Add(this.panelTotalDue);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1106, 665);
+            this.panel6.Size = new System.Drawing.Size(1216, 698);
             this.panel6.TabIndex = 42;
             // 
-            // label10
+            // label1
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(67, 8);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 16);
-            this.label10.TabIndex = 37;
-            this.label10.Text = "Debit/Credit";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(626, 409);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Unit Price";
             // 
-            // panel7
+            // label11
             // 
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.label10);
-            this.panel7.Location = new System.Drawing.Point(18, 210);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(200, 35);
-            this.panel7.TabIndex = 38;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(236, 385);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 16);
+            this.label11.TabIndex = 42;
+            this.label11.Text = "Services";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(490, 385);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(55, 16);
+            this.label12.TabIndex = 43;
+            this.label12.Text = "Quantity";
             // 
             // CheckoutBillingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(239)))), ((int)(((byte)(232)))));
-            this.ClientSize = new System.Drawing.Size(1106, 665);
+            this.ClientSize = new System.Drawing.Size(1216, 698);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.dgvLineItems);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel6);
@@ -753,6 +779,7 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -763,8 +790,6 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -831,7 +856,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }

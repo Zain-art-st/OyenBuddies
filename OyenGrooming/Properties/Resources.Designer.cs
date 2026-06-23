@@ -73,9 +73,89 @@ namespace OyenGrooming.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3289576_individual_man_people_person_107097 {
+            get {
+                object obj = ResourceManager.GetObject("3289576-individual-man-people-person_107097", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _712tQUrusKL__AC_UF894_1000_QL80_ {
+            get {
+                object obj = ResourceManager.GetObject("712tQUrusKL._AC_UF894,1000_QL80_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap analytics_income_increase_chart_growth_profit_revenue_icon_232603 {
+            get {
+                object obj = ResourceManager.GetObject("analytics_income_increase_chart_growth_profit_revenue_icon_232603", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap calendar_date_event_schedule_icon_127191 {
+            get {
+                object obj = ResourceManager.GetObject("calendar_date_event_schedule_icon_127191", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap calendar_with_spring_binder_and_date_blocks_icon_icons_com_73645 {
+            get {
+                object obj = ResourceManager.GetObject("calendar-with-spring-binder-and-date-blocks_icon-icons.com_73645", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cat_explosion {
+            get {
+                object obj = ResourceManager.GetObject("cat-explosion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap explosion_cats {
+            get {
+                object obj = ResourceManager.GetObject("explosion-cats", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap images {
             get {
                 object obj = ResourceManager.GetObject("images", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images1 {
+            get {
+                object obj = ResourceManager.GetObject("images1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +176,16 @@ namespace OyenGrooming.Properties {
         internal static System.Drawing.Bitmap Man_walking_icon_1410105361_svg {
             get {
                 object obj = ResourceManager.GetObject("Man_walking_icon_1410105361.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pedestrianwalking_89238 {
+            get {
+                object obj = ResourceManager.GetObject("pedestrianwalking_89238", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

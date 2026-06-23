@@ -60,7 +60,7 @@ namespace OyenGrooming
             // Highlight nav tiles on hover using lambda
             Button[] tiles = { btnTileCustomers, btnTileAppointments,
                            btnTileQueue, btnTileCheckout,
-                           btnTileAnalytics, btnTileServices };
+                           btnTileAnalytics };
 
             foreach (var tile in tiles)
             {

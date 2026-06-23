@@ -47,7 +47,6 @@
             this.lblClock = new System.Windows.Forms.Label();
             this.lblUserInfo = new System.Windows.Forms.Label();
             this.lblGreeting = new System.Windows.Forms.Label();
-            this.btnTileServices = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
             this.btnTileQueue = new System.Windows.Forms.Button();
             this.btnTileAppointments = new System.Windows.Forms.Button();
@@ -80,6 +79,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panelMain.SuspendLayout();
@@ -116,39 +117,39 @@
             // dashboardToolStripMenuItem
             // 
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(96, 24);
+            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(96, 26);
             this.dashboardToolStripMenuItem.Text = "Dashboard";
             // 
             // customersToolStripMenuItem
             // 
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(92, 26);
             this.customersToolStripMenuItem.Text = "Customers";
             this.customersToolStripMenuItem.Click += new System.EventHandler(this.menuCustomers_Click);
             // 
             // appoinmentReportsToolStripMenuItem
             // 
             this.appoinmentReportsToolStripMenuItem.Name = "appoinmentReportsToolStripMenuItem";
-            this.appoinmentReportsToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
+            this.appoinmentReportsToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
             this.appoinmentReportsToolStripMenuItem.Text = "Appoinment";
             this.appoinmentReportsToolStripMenuItem.Click += new System.EventHandler(this.menuAppointments_Click);
             // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(74, 26);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 26);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(70, 26);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.menuLogout_Click);
             // 
@@ -186,7 +187,7 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(135, 24);
+            this.toolStripButton2.Size = new System.Drawing.Size(135, 28);
             this.toolStripButton2.Text = "New Appointment";
             this.toolStripButton2.Click += new System.EventHandler(this.toolBtnNewAppointment_Click);
             // 
@@ -196,7 +197,7 @@
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(110, 24);
+            this.toolStripButton3.Size = new System.Drawing.Size(110, 28);
             this.toolStripButton3.Text = "New Customer";
             this.toolStripButton3.Click += new System.EventHandler(this.toolBtnNewCustomer_Click);
             // 
@@ -206,7 +207,7 @@
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(92, 24);
+            this.toolStripButton4.Size = new System.Drawing.Size(92, 28);
             this.toolStripButton4.Text = "Print Report";
             this.toolStripButton4.Click += new System.EventHandler(this.toolBtnPrint_Click);
             // 
@@ -216,7 +217,7 @@
             this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(57, 24);
+            this.toolStripButton5.Size = new System.Drawing.Size(57, 28);
             this.toolStripButton5.Text = "Search";
             // 
             // panelMain
@@ -224,7 +225,6 @@
             this.panelMain.Controls.Add(this.lblClock);
             this.panelMain.Controls.Add(this.lblUserInfo);
             this.panelMain.Controls.Add(this.lblGreeting);
-            this.panelMain.Controls.Add(this.btnTileServices);
             this.panelMain.Controls.Add(this.lblDate);
             this.panelMain.Controls.Add(this.btnTileQueue);
             this.panelMain.Controls.Add(this.btnTileAppointments);
@@ -256,10 +256,11 @@
             // lblUserInfo
             // 
             this.lblUserInfo.AutoSize = true;
-            this.lblUserInfo.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserInfo.Location = new System.Drawing.Point(85, 59);
+            this.lblUserInfo.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserInfo.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblUserInfo.Location = new System.Drawing.Point(122, 49);
             this.lblUserInfo.Name = "lblUserInfo";
-            this.lblUserInfo.Size = new System.Drawing.Size(43, 17);
+            this.lblUserInfo.Size = new System.Drawing.Size(55, 23);
             this.lblUserInfo.TabIndex = 20;
             this.lblUserInfo.Text = "label1";
             // 
@@ -273,23 +274,12 @@
             this.lblGreeting.TabIndex = 10;
             this.lblGreeting.Text = "label2";
             // 
-            // btnTileServices
-            // 
-            this.btnTileServices.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTileServices.Location = new System.Drawing.Point(577, 300);
-            this.btnTileServices.Name = "btnTileServices";
-            this.btnTileServices.Size = new System.Drawing.Size(230, 70);
-            this.btnTileServices.TabIndex = 19;
-            this.btnTileServices.Text = "✂️ Services";
-            this.btnTileServices.UseVisualStyleBackColor = true;
-            this.btnTileServices.Click += new System.EventHandler(this.btnTileServices_Click);
-            // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblDate.Location = new System.Drawing.Point(78, 196);
+            this.lblDate.Location = new System.Drawing.Point(115, 190);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(55, 23);
             this.lblDate.TabIndex = 11;
@@ -298,7 +288,7 @@
             // btnTileQueue
             // 
             this.btnTileQueue.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTileQueue.Location = new System.Drawing.Point(577, 222);
+            this.btnTileQueue.Location = new System.Drawing.Point(597, 216);
             this.btnTileQueue.Name = "btnTileQueue";
             this.btnTileQueue.Size = new System.Drawing.Size(230, 70);
             this.btnTileQueue.TabIndex = 17;
@@ -309,7 +299,7 @@
             // btnTileAppointments
             // 
             this.btnTileAppointments.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTileAppointments.Location = new System.Drawing.Point(341, 222);
+            this.btnTileAppointments.Location = new System.Drawing.Point(361, 216);
             this.btnTileAppointments.Name = "btnTileAppointments";
             this.btnTileAppointments.Size = new System.Drawing.Size(230, 70);
             this.btnTileAppointments.TabIndex = 18;
@@ -320,7 +310,7 @@
             // btnTileAnalytics
             // 
             this.btnTileAnalytics.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTileAnalytics.Location = new System.Drawing.Point(341, 300);
+            this.btnTileAnalytics.Location = new System.Drawing.Point(524, 292);
             this.btnTileAnalytics.Name = "btnTileAnalytics";
             this.btnTileAnalytics.Size = new System.Drawing.Size(230, 70);
             this.btnTileAnalytics.TabIndex = 15;
@@ -333,7 +323,7 @@
             this.lblStats.AutoSize = true;
             this.lblStats.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStats.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblStats.Location = new System.Drawing.Point(89, 384);
+            this.lblStats.Location = new System.Drawing.Point(109, 378);
             this.lblStats.Name = "lblStats";
             this.lblStats.Size = new System.Drawing.Size(171, 23);
             this.lblStats.TabIndex = 12;
@@ -343,7 +333,7 @@
             // 
             this.dgvTodayAppts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvTodayAppts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTodayAppts.Location = new System.Drawing.Point(92, 410);
+            this.dgvTodayAppts.Location = new System.Drawing.Point(112, 404);
             this.dgvTodayAppts.Name = "dgvTodayAppts";
             this.dgvTodayAppts.RowHeadersWidth = 51;
             this.dgvTodayAppts.RowTemplate.Height = 24;
@@ -354,7 +344,7 @@
             // btnTileCheckout
             // 
             this.btnTileCheckout.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTileCheckout.Location = new System.Drawing.Point(92, 300);
+            this.btnTileCheckout.Location = new System.Drawing.Point(250, 292);
             this.btnTileCheckout.Name = "btnTileCheckout";
             this.btnTileCheckout.Size = new System.Drawing.Size(230, 70);
             this.btnTileCheckout.TabIndex = 16;
@@ -369,7 +359,7 @@
             this.panelStat1.Controls.Add(this.label1);
             this.panelStat1.Controls.Add(this.picStatIcon1);
             this.panelStat1.Controls.Add(this.lblStatAppointments);
-            this.panelStat1.Location = new System.Drawing.Point(84, 78);
+            this.panelStat1.Location = new System.Drawing.Point(126, 75);
             this.panelStat1.Name = "panelStat1";
             this.panelStat1.Size = new System.Drawing.Size(154, 100);
             this.panelStat1.TabIndex = 5;
@@ -386,11 +376,12 @@
             // 
             // picStatIcon1
             // 
-            this.picStatIcon1.Image = global::OyenGrooming.Properties.Resources._1067374;
-            this.picStatIcon1.Location = new System.Drawing.Point(7, 9);
+            this.picStatIcon1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picStatIcon1.Image = global::OyenGrooming.Properties.Resources.calendar_with_spring_binder_and_date_blocks_icon_icons_com_73645;
+            this.picStatIcon1.Location = new System.Drawing.Point(54, 9);
             this.picStatIcon1.Name = "picStatIcon1";
-            this.picStatIcon1.Size = new System.Drawing.Size(52, 50);
-            this.picStatIcon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picStatIcon1.Size = new System.Drawing.Size(52, 52);
+            this.picStatIcon1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picStatIcon1.TabIndex = 21;
             this.picStatIcon1.TabStop = false;
             // 
@@ -411,7 +402,7 @@
             this.panelStat2.Controls.Add(this.label2);
             this.panelStat2.Controls.Add(this.picStatIcon2);
             this.panelStat2.Controls.Add(this.lblStatConfirmed);
-            this.panelStat2.Location = new System.Drawing.Point(262, 78);
+            this.panelStat2.Location = new System.Drawing.Point(304, 75);
             this.panelStat2.Name = "panelStat2";
             this.panelStat2.Size = new System.Drawing.Size(165, 100);
             this.panelStat2.TabIndex = 6;
@@ -428,11 +419,12 @@
             // 
             // picStatIcon2
             // 
-            this.picStatIcon2.Image = global::OyenGrooming.Properties.Resources.images;
-            this.picStatIcon2.Location = new System.Drawing.Point(9, 9);
+            this.picStatIcon2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picStatIcon2.Image = global::OyenGrooming.Properties.Resources._3289576_individual_man_people_person_107097;
+            this.picStatIcon2.Location = new System.Drawing.Point(53, 9);
             this.picStatIcon2.Name = "picStatIcon2";
-            this.picStatIcon2.Size = new System.Drawing.Size(50, 50);
-            this.picStatIcon2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picStatIcon2.Size = new System.Drawing.Size(52, 52);
+            this.picStatIcon2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picStatIcon2.TabIndex = 22;
             this.picStatIcon2.TabStop = false;
             // 
@@ -449,7 +441,7 @@
             // btnTileCustomers
             // 
             this.btnTileCustomers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTileCustomers.Location = new System.Drawing.Point(92, 222);
+            this.btnTileCustomers.Location = new System.Drawing.Point(112, 216);
             this.btnTileCustomers.Name = "btnTileCustomers";
             this.btnTileCustomers.Size = new System.Drawing.Size(230, 70);
             this.btnTileCustomers.TabIndex = 14;
@@ -464,7 +456,7 @@
             this.panelStat3.Controls.Add(this.label3);
             this.panelStat3.Controls.Add(this.lblStatCustomers);
             this.panelStat3.Controls.Add(this.picStatIcon3);
-            this.panelStat3.Location = new System.Drawing.Point(448, 78);
+            this.panelStat3.Location = new System.Drawing.Point(490, 75);
             this.panelStat3.Name = "panelStat3";
             this.panelStat3.Size = new System.Drawing.Size(150, 100);
             this.panelStat3.TabIndex = 7;
@@ -491,11 +483,12 @@
             // 
             // picStatIcon3
             // 
-            this.picStatIcon3.Image = global::OyenGrooming.Properties.Resources.Man_walking_icon_1410105361_svg;
-            this.picStatIcon3.Location = new System.Drawing.Point(8, 18);
+            this.picStatIcon3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picStatIcon3.Image = global::OyenGrooming.Properties.Resources.pedestrianwalking_89238;
+            this.picStatIcon3.Location = new System.Drawing.Point(45, 9);
             this.picStatIcon3.Name = "picStatIcon3";
-            this.picStatIcon3.Size = new System.Drawing.Size(39, 41);
-            this.picStatIcon3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picStatIcon3.Size = new System.Drawing.Size(52, 52);
+            this.picStatIcon3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picStatIcon3.TabIndex = 23;
             this.picStatIcon3.TabStop = false;
             // 
@@ -506,7 +499,7 @@
             this.panelStat4.Controls.Add(this.label4);
             this.panelStat4.Controls.Add(this.lblStatRevenue);
             this.panelStat4.Controls.Add(this.picStatIcon4);
-            this.panelStat4.Location = new System.Drawing.Point(621, 78);
+            this.panelStat4.Location = new System.Drawing.Point(663, 75);
             this.panelStat4.Name = "panelStat4";
             this.panelStat4.Size = new System.Drawing.Size(152, 100);
             this.panelStat4.TabIndex = 8;
@@ -533,10 +526,11 @@
             // 
             // picStatIcon4
             // 
-            this.picStatIcon4.Image = global::OyenGrooming.Properties.Resources.istockphoto_1330591104_612x612;
-            this.picStatIcon4.Location = new System.Drawing.Point(3, 9);
+            this.picStatIcon4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picStatIcon4.Image = global::OyenGrooming.Properties.Resources.analytics_income_increase_chart_growth_profit_revenue_icon_232603;
+            this.picStatIcon4.Location = new System.Drawing.Point(52, 9);
             this.picStatIcon4.Name = "picStatIcon4";
-            this.picStatIcon4.Size = new System.Drawing.Size(73, 50);
+            this.picStatIcon4.Size = new System.Drawing.Size(52, 52);
             this.picStatIcon4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picStatIcon4.TabIndex = 24;
             this.picStatIcon4.TabStop = false;
@@ -551,7 +545,9 @@
             this.lblStatusText.BackColor = System.Drawing.Color.White;
             this.lblStatusText.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.lblStatusText.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
             this.lblStatPending,
+            this.toolStripStatusLabel2,
             this.lblStatQueue});
             this.lblStatusText.Location = new System.Drawing.Point(0, 624);
             this.lblStatusText.Name = "lblStatusText";
@@ -605,6 +601,18 @@
             this.btnClose.Text = "button1";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(95, 20);
+            this.toolStripStatusLabel1.Text = "Stat Pending:";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(82, 20);
+            this.toolStripStatusLabel2.Text = "Stat Queue";
             // 
             // MainDashboard
             // 
@@ -681,7 +689,6 @@
         private System.Windows.Forms.Button btnTileCheckout;
         private System.Windows.Forms.Button btnTileQueue;
         private System.Windows.Forms.Button btnTileAppointments;
-        private System.Windows.Forms.Button btnTileServices;
         private System.Windows.Forms.StatusStrip lblStatusText;
         private System.Windows.Forms.PictureBox picStatIcon1;
         private System.Windows.Forms.PictureBox picStatIcon2;
@@ -702,5 +709,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }
