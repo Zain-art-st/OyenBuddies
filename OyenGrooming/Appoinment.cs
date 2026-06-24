@@ -10,7 +10,8 @@ namespace OyenGrooming
     {
         public int CustomerID { get; set; }
         public int PetID { get; set; }
-        public int GroomerID { get; set; }
+        public int? StaffID { get; set; }
+        public int? GroomerID { get; set; }
         public DateTime AppointmentDate { get; set; }
         public string TimeSlot { get; set; }
         public string Status { get; set; } // Confirmed, Pending, Completed, Cancelled

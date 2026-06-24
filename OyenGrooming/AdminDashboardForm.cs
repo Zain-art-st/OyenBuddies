@@ -73,6 +73,7 @@ namespace OyenGrooming
                     dgvAdminData.DataSource = dt;
                     dgvAdminData.ReadOnly = true;
                     dgvAdminData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgvAdminData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 }
             }
             catch (SqlException ex)
@@ -104,6 +105,83 @@ namespace OyenGrooming
             LoginForm login = new LoginForm();
             login.Show();
             this.Close();
+        }
+
+        private void btnToggleStatus_Click(object sender, EventArgs e)
+        {
+            // 1. Ensure we are looking at the Staff Directory
+            if (cmbDataView.SelectedItem?.ToString() != "Staff Directory")
+            {
+                MessageBox.Show("Please select the 'Staff Directory' view from the dropdown first.",
+                    "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // 2. Ensure a staff member is selected
+            if (dgvAdminData.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a staff member from the list.",
+                    "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // Get data from the selected row
+                DataGridViewRow row = dgvAdminData.CurrentRow;
+                int staffId = Convert.ToInt32(row.Cells["StaffID"].Value);
+                string fullName = row.Cells["FullName"].Value.ToString();
+                bool isActive = Convert.ToBoolean(row.Cells["IsActive"].Value);
+
+                using (SqlConnection conn = DatabaseHelper.GetConnection())
+                {
+                    conn.Open();
+
+                    // 3. THE CONSTRAINT: If trying to DEACTIVATE, check for active jobs first
+                    if (isActive)
+                    {
+                        // This SQL counts active Appointments AND active Walk-in Queue jobs
+                        string checkSql = @"
+                    SELECT 
+                        (SELECT COUNT(*) FROM Appointments WHERE GroomerID = @ID AND Status IN ('Pending', 'Confirmed')) +
+                        (SELECT COUNT(*) FROM WalkInQueue WHERE GroomerID = @ID AND Status IN ('Waiting', 'Serving'))";
+
+                        using (SqlCommand checkCmd = new SqlCommand(checkSql, conn))
+                        {
+                            checkCmd.Parameters.AddWithValue("@ID", staffId);
+                            int activeJobs = (int)checkCmd.ExecuteScalar();
+
+                            if (activeJobs > 0)
+                            {
+                                MessageBox.Show($"{fullName} still has {activeJobs} active appointment(s) or walk-in(s).\n\nPlease find a replacement or complete their jobs first.",
+                                    "Cannot Deactivate", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                return; // Stop the deactivation!
+                            }
+                        }
+                    }
+
+                    // 4. If safe (or if we are activating them), toggle the status
+                    string updateSql = "UPDATE Staff SET IsActive = @NewStatus WHERE StaffID = @ID";
+                    using (SqlCommand cmd = new SqlCommand(updateSql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@NewStatus", !isActive); // Flip the boolean
+                        cmd.Parameters.AddWithValue("@ID", staffId);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    string statusText = !isActive ? "Activated" : "Deactivated";
+                    MessageBox.Show($"{fullName} has been successfully {statusText}.",
+                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // 5. Refresh the grid to show the new status
+                    LoadData("Staff Directory");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating staff status: {ex.Message}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

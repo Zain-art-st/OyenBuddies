@@ -145,7 +145,16 @@ namespace OyenGrooming
             txtAmountTendered.TextChanged += (s, e) => CalculateChange();
 
             // Reload pets when customer changes
-            cmbCustomer.SelectedIndexChanged += (s, e) => LoadPetsForCustomer();
+            cmbCustomer.SelectedIndexChanged += (s, e) =>
+            {
+                LoadPetsForCustomer();
+
+                // Only auto-scan if we are creating a New Invoice (ID == 0) so we don't accidentally overwrite an old invoice we are viewing
+                if (cmbCustomer.SelectedValue is int cid && _currentInvoice.ID == 0)
+                {
+                    CheckForUnbilledServices(cid);
+                }
+            };
 
             // Sync the chosen customer/pet into the invoice being built
             cmbPet.SelectedIndexChanged += (s, e) =>
@@ -414,6 +423,63 @@ namespace OyenGrooming
             {
                 MessageBox.Show($"Error loading walk-in: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void CheckForUnbilledServices(int customerID)
+        {
+            try
+            {
+                using (SqlConnection conn = DatabaseHelper.GetConnection())
+                {
+                    conn.Open();
+
+                    // 1. Check Walk-In Queue (Serving or Done today, not yet invoiced)
+                    string walkInSql = @"
+                SELECT TOP 1 QueueID 
+                FROM WalkInQueue 
+                WHERE CustomerID = @CID 
+                  AND Status IN ('Serving', 'Done') 
+                  AND CAST(CheckInTime AS DATE) = CAST(GETDATE() AS DATE)
+                  AND QueueID NOT IN (SELECT ISNULL(QueueID, 0) FROM Invoices)";
+
+                    using (SqlCommand cmd = new SqlCommand(walkInSql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@CID", customerID);
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            LoadFromWalkIn((int)result);
+                            cmbPet.SelectedValue = _currentInvoice.PetID; // Sync the Pet dropdown
+                            lblSource.Text = $"Walk-in #{(int)result}";   // Ensure label stays correct
+                            return; // Stop here if we found a walk-in
+                        }
+                    }
+
+                    // 2. Check Appointments (Confirmed or Completed today, not yet invoiced)
+                    string apptSql = @"
+                SELECT TOP 1 AppointmentID 
+                FROM Appointments 
+                WHERE CustomerID = @CID 
+                  AND Status IN ('Completed', 'Confirmed') 
+                  AND CAST(AppointmentDate AS DATE) = CAST(GETDATE() AS DATE)
+                  AND AppointmentID NOT IN (SELECT ISNULL(AppointmentID, 0) FROM Invoices)";
+
+                    using (SqlCommand cmd = new SqlCommand(apptSql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@CID", customerID);
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            LoadFromAppointment((int)result);
+                            cmbPet.SelectedValue = _currentInvoice.PetID; // Sync the Pet dropdown
+                            lblSource.Text = $"Appointment #{(int)result}"; // Ensure label stays correct
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                // Silently ignore if no pending services are found so it doesn't interrupt normal manual checkouts
             }
         }
 

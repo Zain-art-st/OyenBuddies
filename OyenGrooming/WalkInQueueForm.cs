@@ -13,10 +13,10 @@ namespace OyenGrooming
     {
         private Staff _currentStaff;
 
-        // Collection #6 — Queue<QueueEntry> — the actual live queue
+        
         private Queue<QueueEntry> _liveQueue = new Queue<QueueEntry>();
 
-        // Full list including Done/Left entries for display
+     
         private List<QueueEntry> _allEntries = new List<QueueEntry>();
 
         private List<Customer> _customers = new List<Customer>();
@@ -24,8 +24,7 @@ namespace OyenGrooming
         private List<Service> _services = new List<Service>();
         private List<Staff> _groomers = new List<Staff>();
 
-        // Delegate for when a queue entry becomes "Serving"
-        // — could be used to notify checkout form
+        // Delegate "Serving"
         public delegate void QueueEntryServing(QueueEntry entry);
         public event QueueEntryServing OnEntryServing;
 
@@ -37,15 +36,12 @@ namespace OyenGrooming
             SetupKeyboardEvents();
             LoadDropdownData();
             LoadTodayQueue();
-            timerRefresh.Interval = 30000; // 30 seconds
+            timerRefresh.Interval = 30000; // 30s
             timerRefresh.Start();
         }
-
-        // ─── SETUP ────────────────────────────────────────────────
-
         private void SetupMouseEvents()
         {
-            // Hover effect on Check In button
+            // Hover effect 
             btnCheckIn.MouseEnter += (s, e) =>
                 btnCheckIn.BackColor = Color.FromArgb(15, 110, 86);
             btnCheckIn.MouseLeave += (s, e) =>
@@ -60,22 +56,18 @@ namespace OyenGrooming
             this.KeyPreview = true;
             this.KeyDown += (s, e) =>
             {
-                // Enter on customer combo = move to pet combo
+                // Enter on customer combo 
                 if (e.KeyCode == Keys.Enter && cmbCustomer.Focused)
                 {
                     cmbPet.Focus();
                     e.Handled = true;
-                }
-                // F2 = Call Next
-                if (e.KeyCode == Keys.F2) CallNext();
-                // F5 = Refresh
+                }if (e.KeyCode == Keys.F2) CallNext();
                 if (e.KeyCode == Keys.F5) LoadTodayQueue();
-                // Escape = Clear form
                 if (e.KeyCode == Keys.Escape) ClearForm();
             };
         }
 
-        // ─── LOAD DROPDOWN DATA ───────────────────────────────────
+
 
         private void LoadDropdownData()
         {
@@ -188,7 +180,7 @@ namespace OyenGrooming
                         });
             }
 
-            // Add "Auto-assign" option at top
+            // "Auto-assign" option 
             var groomerList = new List<Staff>
             { new Staff { ID = -1, FullName = "Auto-assign" } };
             groomerList.AddRange(_groomers);
@@ -198,7 +190,6 @@ namespace OyenGrooming
             cmbGroomer.DataSource = groomerList;
         }
 
-        // ─── LOAD TODAY'S QUEUE ───────────────────────────────────
 
         private void LoadTodayQueue()
         {
@@ -276,7 +267,7 @@ namespace OyenGrooming
         {
             _liveQueue.Clear();
 
-            // LINQ #16 — filter only Waiting entries, ordered by queue number
+            // LINQ filter only Waiting entries
             var waiting = _allEntries
                 .Where(e => e.Status == "Waiting")
                 .OrderBy(e => e.QueueNumber)
@@ -286,7 +277,6 @@ namespace OyenGrooming
                 _liveQueue.Enqueue(entry);
         }
 
-        // ─── RENDER QUEUE CARDS ───────────────────────────────────
 
         private void RenderQueueCards()
         {
@@ -367,7 +357,7 @@ namespace OyenGrooming
                 AutoSize = false
             };
 
-            // Wait time / completion time
+            // Wait time
             Label waitLbl = new Label
             {
                 Text = isDone
@@ -385,7 +375,7 @@ namespace OyenGrooming
 
             card.Controls.AddRange(new Control[] { numLbl, infoLbl, subLbl, waitLbl });
 
-            // Action buttons — only for active entries
+            // Action buttons
             if (!isDone)
             {
                 if (isServing)
@@ -404,7 +394,7 @@ namespace OyenGrooming
                 }
             }
 
-            // Mouse hover on whole card
+            // Mouse hover 
             card.MouseEnter += (s, e) =>
             {
                 if (!isServing && !isDone)
@@ -439,7 +429,6 @@ namespace OyenGrooming
             return btn;
         }
 
-        // ─── QUEUE ACTIONS ────────────────────────────────────────
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
@@ -505,10 +494,10 @@ namespace OyenGrooming
                     return;
                 }
 
-                // Dequeue the next entry
+                // Dequeue
                 QueueEntry next = _liveQueue.Dequeue();
                 UpdateQueueStatus(next, "Serving");
-                OnEntryServing?.Invoke(next); // notify checkout
+                OnEntryServing?.Invoke(next);
             }
             catch (Exception ex)
             {
@@ -569,11 +558,11 @@ namespace OyenGrooming
             }
         }
 
-        // ─── STATS ────────────────────────────────────────────────
+
 
         private void UpdateStats()
         {
-            // LINQ #17 — count by status
+            // LINQ count by status
             int waiting = _allEntries.Count(e => e.Status == "Waiting");
             int serving = _allEntries.Count(e => e.Status == "Serving");
             int done = _allEntries.Count(e => e.Status == "Done");
@@ -582,7 +571,7 @@ namespace OyenGrooming
             lblServing.Text = serving.ToString();
             lblDone.Text = done.ToString();
 
-            // LINQ #18 — average wait time for completed entries (in minutes)
+            // LINQ average wait time 
             var avgWait = _allEntries
                 .Where(e => e.Status == "Done" && e.ServedTime.HasValue)
                 .Select(e => (e.ServedTime.Value - e.CheckInTime).TotalMinutes)
@@ -614,13 +603,12 @@ namespace OyenGrooming
             }
         }
 
-        // ─── GROOMER STATUS PANEL ─────────────────────────────────
 
         private void UpdateGroomerPanel()
         {
             try
             {
-                // LINQ #19 — find which groomers are currently serving
+                // LINQ find groomers
                 var busyGroomerIDs = _allEntries
                     .Where(e => e.Status == "Serving" && e.GroomerID.HasValue)
                     .Select(e => e.GroomerID.Value)
@@ -666,7 +654,7 @@ namespace OyenGrooming
             }
         }
 
-        // ─── HELPERS ──────────────────────────────────────────────
+
 
         private void ClearForm()
         {
@@ -677,7 +665,6 @@ namespace OyenGrooming
             txtNotes.Clear();
         }
 
-        // ─── BUTTON / TIMER EVENTS ────────────────────────────────
 
         private void btnCallNext_Click(object sender, EventArgs e) => CallNext();
         private void btnRefresh_Click(object sender, EventArgs e) => LoadTodayQueue();
@@ -692,7 +679,6 @@ namespace OyenGrooming
             }
             catch (Exception ex)
             {
-                // Don't crash on auto-refresh — just log silently
                 lblLastUpdated.Text = $"Refresh error: {ex.Message}";
             }
         }
@@ -708,7 +694,6 @@ namespace OyenGrooming
         }
         public static class DatabaseHelper
         {
-            // Storing your connection string securely in a central location
             private static readonly string _connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=OyenGrooming;Integrated Security=True;Connect Timeout=30;";
 
             public static SqlConnection GetConnection()

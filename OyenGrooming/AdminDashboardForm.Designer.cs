@@ -34,6 +34,7 @@
             this.lblTotalRevenue = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnToggleStatus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdminData)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -98,12 +99,26 @@
             this.panel1.Size = new System.Drawing.Size(918, 308);
             this.panel1.TabIndex = 5;
             // 
+            // btnToggleStatus
+            // 
+            this.btnToggleStatus.BackColor = System.Drawing.Color.Red;
+            this.btnToggleStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToggleStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToggleStatus.Location = new System.Drawing.Point(33, 383);
+            this.btnToggleStatus.Name = "btnToggleStatus";
+            this.btnToggleStatus.Size = new System.Drawing.Size(157, 32);
+            this.btnToggleStatus.TabIndex = 6;
+            this.btnToggleStatus.Text = "Active / Deactive";
+            this.btnToggleStatus.UseVisualStyleBackColor = false;
+            this.btnToggleStatus.Click += new System.EventHandler(this.btnToggleStatus_Click);
+            // 
             // AdminDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(993, 450);
+            this.Controls.Add(this.btnToggleStatus);
             this.Controls.Add(this.panel1);
             this.Name = "AdminDashboardForm";
             this.Text = "AdminDashboardForm";
@@ -122,5 +137,6 @@
         private System.Windows.Forms.Label lblTotalRevenue;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnToggleStatus;
     }
 }

@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerPetProfileForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -79,15 +83,15 @@
             this.lblStatusRecord = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblStatusCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
             this.btnExpand = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.btnAddPetToCustomer = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabCustomers.SuspendLayout();
@@ -119,6 +123,45 @@
             this.toolStrip1.Size = new System.Drawing.Size(1027, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(75, 24);
+            this.toolStripButton1.Text = "Add New";
+            this.toolStripButton1.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(39, 28);
+            this.toolStripButton2.Text = "Edit";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(57, 28);
+            this.toolStripButton3.Text = "Delete";
+            this.toolStripButton3.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(62, 28);
+            this.toolStripButton4.Text = "Refresh";
+            this.toolStripButton4.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // txtSearch
             // 
@@ -177,6 +220,7 @@
             // panelCustomerForm
             // 
             this.panelCustomerForm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelCustomerForm.Controls.Add(this.btnAddPetToCustomer);
             this.panelCustomerForm.Controls.Add(this.label6);
             this.panelCustomerForm.Controls.Add(this.label5);
             this.panelCustomerForm.Controls.Add(this.label4);
@@ -256,7 +300,7 @@
             // 
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(364, 450);
+            this.btnDelete.Location = new System.Drawing.Point(418, 450);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(89, 32);
             this.btnDelete.TabIndex = 16;
@@ -266,7 +310,7 @@
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(240, 450);
+            this.btnNew.Location = new System.Drawing.Point(297, 450);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(89, 32);
             this.btnNew.TabIndex = 15;
@@ -278,7 +322,7 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.Lime;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(106, 450);
+            this.btnSave.Location = new System.Drawing.Point(59, 450);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 32);
             this.btnSave.TabIndex = 14;
@@ -357,6 +401,9 @@
             // 
             // panelPetForm
             // 
+            this.panelPetForm.Controls.Add(this.button2);
+            this.panelPetForm.Controls.Add(this.button3);
+            this.panelPetForm.Controls.Add(this.button4);
             this.panelPetForm.Controls.Add(this.lblBreed);
             this.panelPetForm.Controls.Add(this.txtBreed);
             this.panelPetForm.Controls.Add(this.label15);
@@ -401,7 +448,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(335, 283);
+            this.label15.Location = new System.Drawing.Point(329, 245);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(93, 17);
             this.label15.TabIndex = 38;
@@ -496,7 +543,7 @@
             // 
             // txtMedicalNotes
             // 
-            this.txtMedicalNotes.Location = new System.Drawing.Point(284, 302);
+            this.txtMedicalNotes.Location = new System.Drawing.Point(284, 272);
             this.txtMedicalNotes.Multiline = true;
             this.txtMedicalNotes.Name = "txtMedicalNotes";
             this.txtMedicalNotes.Size = new System.Drawing.Size(217, 127);
@@ -527,6 +574,9 @@
             // cmbGender
             // 
             this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Items.AddRange(new object[] {
+            "Male ",
+            "Female"});
             this.cmbGender.Location = new System.Drawing.Point(72, 181);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(121, 25);
@@ -535,6 +585,9 @@
             // cmbSpecies
             // 
             this.cmbSpecies.FormattingEnabled = true;
+            this.cmbSpecies.Items.AddRange(new object[] {
+            "Cat",
+            "Dog"});
             this.cmbSpecies.Location = new System.Drawing.Point(72, 291);
             this.cmbSpecies.Name = "cmbSpecies";
             this.cmbSpecies.Size = new System.Drawing.Size(121, 25);
@@ -599,6 +652,17 @@
             this.panel1.Size = new System.Drawing.Size(1027, 30);
             this.panel1.TabIndex = 22;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label16.Location = new System.Drawing.Point(457, 7);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(149, 17);
+            this.label16.TabIndex = 27;
+            this.label16.Text = "Oyen\'s Buddies System";
+            // 
             // btnExpand
             // 
             this.btnExpand.BackColor = System.Drawing.Color.Green;
@@ -646,55 +710,51 @@
             this.panel2.Size = new System.Drawing.Size(1027, 45);
             this.panel2.TabIndex = 23;
             // 
-            // label16
+            // btnAddPetToCustomer
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label16.Location = new System.Drawing.Point(457, 7);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(149, 17);
-            this.label16.TabIndex = 27;
-            this.label16.Text = "Oyen\'s Buddies System";
+            this.btnAddPetToCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnAddPetToCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPetToCustomer.Location = new System.Drawing.Point(181, 450);
+            this.btnAddPetToCustomer.Name = "btnAddPetToCustomer";
+            this.btnAddPetToCustomer.Size = new System.Drawing.Size(90, 32);
+            this.btnAddPetToCustomer.TabIndex = 23;
+            this.btnAddPetToCustomer.Text = "Add Pet";
+            this.btnAddPetToCustomer.UseVisualStyleBackColor = false;
+            this.btnAddPetToCustomer.Click += new System.EventHandler(this.btnAddPetToCustomer_Click);
             // 
-            // toolStripButton1
+            // button2
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(75, 24);
-            this.toolStripButton1.Text = "Add New";
-            this.toolStripButton1.Click += new System.EventHandler(this.btnNew_Click);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(395, 451);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(89, 32);
+            this.button2.TabIndex = 43;
+            this.button2.Text = "Delete";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // toolStripButton2
+            // button3
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(39, 24);
-            this.toolStripButton2.Text = "Edit";
+            this.button3.Location = new System.Drawing.Point(265, 451);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(89, 32);
+            this.button3.TabIndex = 42;
+            this.button3.Text = "New";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // toolStripButton3
+            // button4
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(57, 24);
-            this.toolStripButton3.Text = "Delete";
-            this.toolStripButton3.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(62, 24);
-            this.toolStripButton4.Text = "Refresh";
-            this.toolStripButton4.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.button4.BackColor = System.Drawing.Color.Lime;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(137, 451);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(90, 32);
+            this.button4.TabIndex = 41;
+            this.button4.Text = "Save";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // CustomerPetProfileForm
             // 
@@ -797,5 +857,9 @@
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnAddPetToCustomer;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

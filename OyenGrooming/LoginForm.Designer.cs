@@ -36,6 +36,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.statusLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -58,7 +59,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -152,9 +152,10 @@
             // 
             this.btnRegister.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnRegister.FlatAppearance.BorderSize = 0;
-            this.btnRegister.Location = new System.Drawing.Point(151, 369);
+            this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.Location = new System.Drawing.Point(151, 356);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(165, 32);
+            this.btnRegister.Size = new System.Drawing.Size(174, 56);
             this.btnRegister.TabIndex = 11;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -164,7 +165,7 @@
             // 
             this.btnLogin.BackColor = System.Drawing.Color.LightCyan;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLogin.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.InfoText;
             this.btnLogin.Location = new System.Drawing.Point(139, 294);
             this.btnLogin.Name = "btnLogin";
@@ -195,6 +196,17 @@
             this.panel1.Size = new System.Drawing.Size(900, 30);
             this.panel1.TabIndex = 14;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label13.Location = new System.Drawing.Point(375, 7);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(149, 17);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Oyen\'s Buddies System";
             // 
             // button3
             // 
@@ -439,17 +451,6 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Register New Staff";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label13.Location = new System.Drawing.Point(375, 7);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(149, 17);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "Oyen\'s Buddies System";
             // 
             // LoginForm
             // 

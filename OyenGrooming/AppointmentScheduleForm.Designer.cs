@@ -203,9 +203,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowSlots.AutoScroll = true;
             this.flowSlots.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(239)))), ((int)(((byte)(232)))));
-            this.flowSlots.Location = new System.Drawing.Point(6, 102);
+            this.flowSlots.Location = new System.Drawing.Point(6, 76);
             this.flowSlots.Name = "flowSlots";
-            this.flowSlots.Size = new System.Drawing.Size(680, 536);
+            this.flowSlots.Size = new System.Drawing.Size(680, 576);
             this.flowSlots.TabIndex = 6;
             // 
             // cmbCustomer
@@ -265,7 +265,8 @@
             // 
             // txtNotes
             // 
-            this.txtNotes.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.txtNotes.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtNotes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNotes.Location = new System.Drawing.Point(19, 461);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";

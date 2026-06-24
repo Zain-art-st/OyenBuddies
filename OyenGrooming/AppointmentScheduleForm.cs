@@ -45,6 +45,8 @@ namespace OyenGrooming
         public AppointmentScheduleForm(Staff staff)
         {
             InitializeComponent();
+            calAppointments.MinDate = DateTime.Today;
+            dtpAppointmentDate.MinDate = DateTime.Today;
             _currentStaff = staff;
             SetupMouseEvents();
             SetupKeyboardEvents();
@@ -62,6 +64,8 @@ namespace OyenGrooming
             {
                 _selectedDate = calAppointments.SelectionStart;
                 LoadAppointmentsForDate(_selectedDate);
+
+                dtpAppointmentDate.Value = _selectedDate;
             };
         }
 
@@ -175,6 +179,11 @@ namespace OyenGrooming
                         }
                     }
                 }
+                var displayPets = _pets.Select(p => new
+                {
+                    ID = p.ID,
+                    DisplayName = $"{p.Name} ({p.Species})"
+                }).ToList();
 
                 cmbPet.DisplayMember = "Name";
                 cmbPet.ValueMember = "ID";
@@ -311,6 +320,7 @@ namespace OyenGrooming
                                 ID = (int)r["AppointmentID"],
                                 CustomerID = (int)r["CustomerID"],
                                 PetID = (int)r["PetID"],
+                                GroomerID = r["GroomerID"] == DBNull.Value ? (int?)null : (int)r["GroomerID"],
                                 AppointmentDate = (DateTime)r["AppointmentDate"],
                                 TimeSlot = r["TimeSlot"].ToString(),
                                 Status = r["Status"].ToString(),
@@ -645,6 +655,17 @@ namespace OyenGrooming
             cmbTimeSlot.SelectedItem = appt.TimeSlot;
             cmbStatus.SelectedItem = appt.Status;
             dtpAppointmentDate.Value = appt.AppointmentDate;
+            cmbService.Text = appt.ServiceType;
+            if (appt.GroomerID.HasValue)
+            {
+                cmbGroomer.SelectedValue = appt.GroomerID.Value;
+            }
+            else
+            {
+                cmbGroomer.SelectedIndex = -1;
+            }
+
+            lblStatusRecord.Text = $"Selected: {appt.PetName} at {appt.TimeSlot}";
             lblStatusRecord.Text = $"Selected: {appt.PetName} at {appt.TimeSlot}";
         }
 
@@ -657,7 +678,19 @@ namespace OyenGrooming
             cmbGroomer.SelectedIndex = -1;
             cmbTimeSlot.SelectedIndex = -1;
             cmbStatus.SelectedIndex = 0;
-            dtpAppointmentDate.Value = DateTime.Today;
+
+            // --- THE FIX ---
+            // Safely sync to the calendar's date, but fallback to Today if viewing a past date
+            if (_selectedDate >= DateTime.Today)
+            {
+                dtpAppointmentDate.Value = _selectedDate;
+            }
+            else
+            {
+                dtpAppointmentDate.Value = DateTime.Today;
+            }
+            // ---------------
+
             txtNotes.Clear();
         }
 

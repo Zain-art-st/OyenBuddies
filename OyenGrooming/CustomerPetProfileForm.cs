@@ -206,7 +206,7 @@ namespace OyenGrooming
                 conn.Open();
                 string query = @"
                 SELECT p.PetID, p.CustomerID, p.Name, p.Species,
-                       p.Breed, p.Gender, p.DateOfBirth, p.Color,
+                       p.Breed, p.Gender, p.DateOfBirth,
                        p.Weight, p.Allergies, p.MedicalNotes,
                        p.IsActive, p.CreatedAt, c.FullName AS OwnerName
                 FROM Pets p
@@ -228,7 +228,6 @@ namespace OyenGrooming
                             Breed = reader["Breed"].ToString(),
                             Gender = reader["Gender"].ToString(),
                             DateOfBirth = reader["DateOfBirth"] as DateTime?,
-                            Color = reader["Color"].ToString(),
                             Weight = reader["Weight"] == DBNull.Value ? 0 : (decimal)reader["Weight"],
                             Allergies = reader["Allergies"].ToString(),
                             MedicalNotes = reader["MedicalNotes"].ToString(),
@@ -504,10 +503,10 @@ namespace OyenGrooming
                     {
                         string sql = @"INSERT INTO Pets
                                    (CustomerID, Name, Species, Breed, Gender,
-                                    DateOfBirth, Color, Weight, Allergies, MedicalNotes)
+                                    DateOfBirth, Weight, Allergies, MedicalNotes)
                                    VALUES
                                    (@CustomerID, @Name, @Species, @Breed, @Gender,
-                                    @DOB, @Color, @Weight, @Allergies, @MedicalNotes)";
+                                    @DOB, @Weight, @Allergies, @MedicalNotes)";
                         using (SqlCommand cmd = new SqlCommand(sql, conn))
                         {
                             cmd.Parameters.AddWithValue("@CustomerID", pet.CustomerID);
@@ -516,7 +515,6 @@ namespace OyenGrooming
                             cmd.Parameters.AddWithValue("@Breed", pet.Breed);
                             cmd.Parameters.AddWithValue("@Gender", pet.Gender);
                             cmd.Parameters.AddWithValue("@DOB", (object)pet.DateOfBirth ?? DBNull.Value);
-                            cmd.Parameters.AddWithValue("@Color", pet.Color);
                             cmd.Parameters.AddWithValue("@Weight", pet.Weight);
                             cmd.Parameters.AddWithValue("@Allergies", pet.Allergies);
                             cmd.Parameters.AddWithValue("@MedicalNotes", pet.MedicalNotes);
@@ -530,7 +528,7 @@ namespace OyenGrooming
                         string sql = @"UPDATE Pets
                                    SET CustomerID=@CustomerID, Name=@Name, Species=@Species,
                                        Breed=@Breed, Gender=@Gender, DateOfBirth=@DOB,
-                                       Color=@Color, Weight=@Weight, Allergies=@Allergies,
+                                       Weight=@Weight, Allergies=@Allergies,
                                        MedicalNotes=@MedicalNotes
                                    WHERE PetID=@ID";
                         using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -541,7 +539,6 @@ namespace OyenGrooming
                             cmd.Parameters.AddWithValue("@Breed", pet.Breed);
                             cmd.Parameters.AddWithValue("@Gender", pet.Gender);
                             cmd.Parameters.AddWithValue("@DOB", (object)pet.DateOfBirth ?? DBNull.Value);
-                            cmd.Parameters.AddWithValue("@Color", pet.Color);
                             cmd.Parameters.AddWithValue("@Weight", pet.Weight);
                             cmd.Parameters.AddWithValue("@Allergies", pet.Allergies);
                             cmd.Parameters.AddWithValue("@MedicalNotes", pet.MedicalNotes);
@@ -693,6 +690,13 @@ namespace OyenGrooming
             {
                 ClearPetForm();
                 SetEditMode(true);
+
+                // NEW LOGIC: Automatically link the pet to the currently selected customer
+                if (_selectedCustomerID != -1)
+                {
+                    cmbCustomerID.SelectedValue = _selectedCustomerID;
+                }
+
                 txtPetName.Focus();
             }
         }
@@ -731,6 +735,28 @@ namespace OyenGrooming
             {
                 return new SqlConnection(_connectionString);
             }
+        }
+
+        private void btnAddPetToCustomer_Click(object sender, EventArgs e)
+        {
+            if (_selectedCustomerID == -1)
+            {
+                MessageBox.Show("Please select a customer from the grid first.", "No Customer Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // 1. Switch the view to the Pets tab
+            tabMain.SelectedTab = tabPets;
+
+            // 2. Prepare the pet form for a new entry
+            ClearPetForm();
+            SetEditMode(true);
+
+            // 3. Crucial step: Auto-assign the selected customer ID to the dropdown
+            cmbCustomerID.SelectedValue = _selectedCustomerID;
+
+            // 4. Set focus to start typing immediately
+            txtPetName.Focus();
         }
     }
 }

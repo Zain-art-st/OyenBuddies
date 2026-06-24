@@ -89,9 +89,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLineItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQty)).BeginInit();
@@ -292,9 +292,10 @@
             // 
             this.btnAddItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddItem.Location = new System.Drawing.Point(851, 392);
+            this.btnAddItem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddItem.Location = new System.Drawing.Point(873, 390);
             this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(103, 36);
+            this.btnAddItem.Size = new System.Drawing.Size(81, 38);
             this.btnAddItem.TabIndex = 15;
             this.btnAddItem.Text = "Add";
             this.btnAddItem.UseVisualStyleBackColor = false;
@@ -319,18 +320,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(15, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 16);
+            this.label3.Size = new System.Drawing.Size(82, 16);
             this.label3.TabIndex = 18;
-            this.label3.Text = "Discount";
+            this.label3.Text = "Discount (%)";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(152, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 16);
+            this.label4.Size = new System.Drawing.Size(53, 16);
             this.label4.TabIndex = 19;
-            this.label4.Text = "Tax";
+            this.label4.Text = "Tax (%)";
             // 
             // txtNotes
             // 
@@ -342,7 +343,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(464, 10);
+            this.label5.Location = new System.Drawing.Point(445, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 16);
             this.label5.TabIndex = 21;
@@ -380,7 +381,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.Lime;
-            this.lblTotal.Location = new System.Drawing.Point(607, 176);
+            this.lblTotal.Location = new System.Drawing.Point(527, 174);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(81, 38);
             this.lblTotal.TabIndex = 25;
@@ -399,9 +400,10 @@
             // Cash
             // 
             this.Cash.AutoSize = true;
+            this.Cash.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cash.Location = new System.Drawing.Point(74, 9);
             this.Cash.Name = "Cash";
-            this.Cash.Size = new System.Drawing.Size(38, 16);
+            this.Cash.Size = new System.Drawing.Size(36, 17);
             this.Cash.TabIndex = 28;
             this.Cash.Text = "Cash";
             // 
@@ -418,9 +420,10 @@
             // lblCardOption
             // 
             this.lblCardOption.AutoSize = true;
+            this.lblCardOption.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCardOption.Location = new System.Drawing.Point(76, 10);
             this.lblCardOption.Name = "lblCardOption";
-            this.lblCardOption.Size = new System.Drawing.Size(36, 16);
+            this.lblCardOption.Size = new System.Drawing.Size(36, 17);
             this.lblCardOption.TabIndex = 34;
             this.lblCardOption.Text = "Card";
             // 
@@ -437,9 +440,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(57, 7);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 16);
+            this.label8.Size = new System.Drawing.Size(86, 17);
             this.label8.TabIndex = 36;
             this.label8.Text = "QR / E-Wallet";
             // 
@@ -456,9 +460,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(57, 7);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 16);
+            this.label9.Size = new System.Drawing.Size(86, 17);
             this.label9.TabIndex = 37;
             this.label9.Text = "Bank Transfer";
             // 
@@ -717,14 +722,14 @@
             this.panel6.Size = new System.Drawing.Size(1216, 698);
             this.panel6.TabIndex = 42;
             // 
-            // label1
+            // label12
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(626, 409);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 16);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Unit Price";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(490, 385);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(55, 16);
+            this.label12.TabIndex = 43;
+            this.label12.Text = "Quantity";
             // 
             // label11
             // 
@@ -735,14 +740,14 @@
             this.label11.TabIndex = 42;
             this.label11.Text = "Services";
             // 
-            // label12
+            // label1
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(490, 385);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(55, 16);
-            this.label12.TabIndex = 43;
-            this.label12.Text = "Quantity";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(626, 409);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Unit Price";
             // 
             // CheckoutBillingForm
             // 
